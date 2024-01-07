@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, redirect, jsonify, url_for, Blueprint
-from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, unset_jwt_cookies
 from api.models import db, User
 from api.utils import generate_sitemap, APIException, get_hash, hash_password, verify_password
 from flask_cors import CORS
@@ -59,3 +59,22 @@ def protected():
 def handle_get_hash():
     to_hash = request.json.get("string")
     return get_hash(to_hash)
+
+@api.route("/private", methods=["GET"])
+@jwt_required()
+def private_route():
+    # The code here will only be executed if a valid JWT is present in the request
+    current_user = get_jwt_identity()
+    return jsonify(message=f"Hello {current_user}, this is a private route!")
+
+@api.route("/logout", methods=["POST"])
+def logout():
+    current_user = get_jwt_identity()
+
+    @jwt_required()
+    def perform_logout():
+        response = jsonify({"message": "Logout successful"})
+        unset_jwt_cookies(response)
+        return response, 200
+
+    return perform_logout()
