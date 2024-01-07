@@ -1,5 +1,8 @@
 from flask import jsonify, url_for
 import hashlib
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt()
 
 class APIException(Exception):
     status_code = 400
@@ -43,3 +46,14 @@ def generate_sitemap(app):
 
 def get_hash(string):
     return hashlib.sha256(bytes(string, "utf-8")).hexdigest()
+
+def hash_password(password):
+    try:
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        return hashed_password
+    except Exception as e:
+        print(f"Error hashing password: {e}")
+        return None
+
+def verify_password(hashed_password, password):
+    return bcrypt.check_password_hash(hashed_password, password)
