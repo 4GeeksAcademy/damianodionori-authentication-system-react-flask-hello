@@ -74,19 +74,3 @@ def serve_any_other_file(path):
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))
     app.run(host='0.0.0.0', port=PORT, debug=True)
-
-
-@app.route("/signup", methods=["POST"])
-def signup():
-    data = request.json
-    email = data.get("email")
-    password = data.get("password")
-
-    # Hash the password using your utility function
-    hashed_password = hash_password(password)
-
-    # Save the user to the database or perform other signup logic
-
-    return jsonify({"message": "Signup successful"}), 201
-
-
