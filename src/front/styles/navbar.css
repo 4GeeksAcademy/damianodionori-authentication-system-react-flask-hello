@@ -1,0 +1,9 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .navbar-buttons {
+    display: flex;
+    gap: 10px;
+  }

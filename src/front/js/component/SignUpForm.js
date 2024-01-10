@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../../styles/authForms.css';
 
-const SignupForm = () => {
+const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -27,16 +28,18 @@ const SignupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Email:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </label>
-      <label>Password:
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <button type="submit">Submit</button>
+    <form onSubmit={handleSubmit} className="form-container">
+      <div className="form-group">
+        <label className="label">Email:</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" />
+      </div>
+      <div className="form-group">
+        <label className="label">Password:</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" />
+      </div>
+      <button type="submit" className="submit-button">Submit</button>
     </form>
   );
 };
 
-export default SignupForm;
+export default SignUpForm;

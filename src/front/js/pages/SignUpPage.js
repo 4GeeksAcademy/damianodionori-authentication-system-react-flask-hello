@@ -1,13 +1,12 @@
-// front/js/pages/SignupPage.js
-
 import React from 'react';
-import SignupForm from '../components/SignupForm';
+import SignUpForm from '../component/SignUpForm.js';
+import '../../styles/authForms.css';
 
 const SignupPage = () => {
   return (
-    <div>
-      <h1>Signup Page</h1>
-      <SignupForm />
+    <div className="form-container">
+      <div className="page-title">Signup</div>
+      <SignUpForm />
     </div>
   );
 };

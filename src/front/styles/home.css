@@ -5,3 +5,8 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+.main-image {
+    width: 40%; /* Specify the desired width */
+    height: 40%; /* Specify the desired height */
+  }
