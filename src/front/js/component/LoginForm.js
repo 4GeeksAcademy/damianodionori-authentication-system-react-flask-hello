@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../styles/authForms.css';
 
 const LoginForm = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
@@ -14,7 +14,7 @@ const LoginForm = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email, password }),
     });
 
     // Handle the response, e.g., save token and redirect on successful login
@@ -35,8 +35,8 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit} className="form-container">
       <div className="form-group">
-        <label className="label">Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" />
+        <label className="label">Email:</label>
+        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className="input" />
       </div>
       <div className="form-group">
         <label className="label">Password:</label>

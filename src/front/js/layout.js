@@ -8,6 +8,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import SignUpPage from "./pages/SignUpPage.js";
 import LoginPage from "./pages/LoginPage.js";
+import PrivatePage from "./pages/PrivatePage.js";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -32,6 +33,7 @@ const Layout = () => {
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<SignUpPage />} path="/signup" />
                         <Route element={<LoginPage />} path="/login" />
+                        <Route element={<PrivatePage />} path="/private" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

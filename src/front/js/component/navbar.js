@@ -18,8 +18,8 @@ export const Navbar = () => {
 			  <span className="navbar-brand mb-0 h1">Home</span>
 			</Link>
 			<div className="ml-auto navbar-buttons">
-			  <Link to="/demo">
-				<button className="btn btn-primary">Check the Context in action</button>
+			  <Link to="/private">
+				<button className="btn btn-primary">Private Area</button>
 			  </Link>
 			  <Link to="/signup">
 				<button className="btn btn-success">Signup</button>
