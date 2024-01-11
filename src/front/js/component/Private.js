@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/authForms.css';
 
 const Private = () => {
     const [message, setMessage] = useState('Example');
-    const history = useHistory();
+    const navigate = useNavigate();
   
     useEffect(() => {
         const fetchPrivateData = async () => {
@@ -29,12 +29,12 @@ const Private = () => {
           } catch (error) {
             console.error(error.message);
     
-            history.push('/login');
+            navigate.push('/login');
           }
         };
     
         fetchPrivateData();
-      }, [history]);
+      }, [navigate]);
 
   return (
     <div>
